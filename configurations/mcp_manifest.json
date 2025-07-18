@@ -1,0 +1,712 @@
+{
+  "manifest_version": "1.0",
+  "name": "Kavira MSP Automation Platform",
+  "description": "Complete MCP manifest for all Kavira MSP automation tools and scripts",
+  "version": "2.0.0",
+  "created": "2025-07-17T18:30:00Z",
+  "updated": "2025-07-17T18:30:00Z",
+  "author": "Kavira Technology",
+  "base_path": "C:\\MSP\\Scripts\\",
+  "authentication": {
+    "method": "app_only",
+    "app_id": "16979a25-45b3-4be5-a1f4-821735ab7f8c",
+    "cert_thumb": "3EEA5A17B121CC09677F6E9DE8F08717AF5280C7",
+    "tenant_config": "C:\\MSP\\Config\\tenants.json"
+  },
+  "categories": {
+    "executive": "Executive Dashboards & Reports",
+    "licensing": "License Optimization & Management", 
+    "health": "Health Monitoring & Diagnostics",
+    "analytics": "Analytics & Intelligence",
+    "automation": "Automation & Workflow",
+    "security": "Security & Compliance",
+    "alerts": "Alerting & Notifications",
+    "reports": "Reporting & Documentation",
+    "integration": "System Integration",
+    "utilities": "Utilities & Tools"
+  },
+  "tools": [
+    {
+      "name": "M365 Booking Verification Diagnostic",
+      "description": "Comprehensive diagnostic tool for Microsoft 365 booking verification code delivery issues",
+      "category": "utilities",
+      "script_path": "Investigate-M365BookingVerificationIssue.ps1",
+      "parameters": [
+        {
+          "name": "TenantName",
+          "type": "string",
+          "required": false,
+          "description": "Target tenant name (default: Pinnacle Road)"
+        },
+    {
+      "name": "Smart User Creation with PAX8 Auto-Procurement",
+      "description": "Revolutionary user provisioning with intelligent license management and PAX8 auto-procurement",
+      "category": "automation",
+      "script_path": "Smart-UserCreation-PAX8.ps1",
+      "parameters": [
+        {
+          "name": "TenantName",
+          "type": "string",
+          "required": true,
+          "description": "Target tenant name"
+        },
+        {
+          "name": "DisplayName",
+          "type": "string",
+          "required": true,
+          "description": "User's display name"
+        },
+        {
+          "name": "AccountName",
+          "type": "string",
+          "required": true,
+          "description": "Account name (before @)"
+        },
+        {
+          "name": "BusinessPremium",
+          "type": "switch",
+          "required": false,
+          "description": "Assign Business Premium license"
+        },
+        {
+          "name": "FullTimeEmployee",
+          "type": "switch",
+          "required": false,
+          "description": "Full-time employee (enables Intune)"
+        },
+        {
+          "name": "PartTimeEmployee",
+          "type": "switch",
+          "required": false,
+          "description": "Part-time employee (no Intune)"
+        }
+      ],
+      "outputs": ["User Account", "License Assignment", "Intune Setup", "PAX8 Procurement", "Audit Trail"],
+      "dependencies": ["Microsoft Graph", "PAX8 MCP Server"],
+      "status": "production",
+      "priority": "critical",
+      "business_impact": "revolutionary",
+      "automation_level": "zero-touch"
+    },
+    {
+      "name": "Deploy Business User - Easy Interface",
+      "description": "Simplified interface for deploying business users with automatic license procurement",
+      "category": "automation",
+      "script_path": "Deploy-BusinessUser.ps1",
+      "parameters": [
+        {
+          "name": "TenantName",
+          "type": "string",
+          "required": true,
+          "description": "Target tenant name"
+        },
+        {
+          "name": "Name",
+          "type": "string",
+          "required": true,
+          "description": "User's full name"
+        },
+        {
+          "name": "Account",
+          "type": "string",
+          "required": true,
+          "description": "Account name"
+        },
+        {
+          "name": "FullTime",
+          "type": "switch",
+          "required": false,
+          "description": "Full-time employee (default)"
+        },
+        {
+          "name": "PartTime",
+          "type": "switch",
+          "required": false,
+          "description": "Part-time employee"
+        }
+      ],
+      "outputs": ["Complete User Setup", "Credentials", "Configuration Summary"],
+      "dependencies": ["Smart-UserCreation-PAX8.ps1"],
+      "status": "production",
+      "priority": "high",
+      "business_impact": "high",
+      "ease_of_use": "simplified"
+    },
+        {
+          "name": "UserEmail",
+          "type": "string",
+          "required": false,
+          "description": "Specific user email to investigate"
+        },
+        {
+          "name": "TestVerificationFlow",
+          "type": "switch",
+          "required": false,
+          "description": "Test the complete verification flow"
+        }
+      ],
+      "outputs": ["Diagnostic Report", "Mail Flow Analysis", "Security Assessment", "Remediation Plan"],
+      "dependencies": ["Microsoft Graph", "Exchange Online"],
+      "status": "production",
+      "priority": "high",
+      "business_impact": "critical"
+    },
+    {
+      "name": "M365 Booking Verification Quick Fix",
+      "description": "Quick fix tool for immediate remediation of booking verification code delivery issues",
+      "category": "utilities",
+      "script_path": "Fix-M365BookingVerificationDelivery.ps1",
+      "parameters": [
+        {
+          "name": "TenantName",
+          "type": "string",
+          "required": false,
+          "description": "Target tenant name (default: Pinnacle Road)"
+        },
+        {
+          "name": "TestEmailAddress",
+          "type": "string",
+          "required": false,
+          "description": "Email address to test delivery"
+        },
+        {
+          "name": "ApplyFixes",
+          "type": "switch",
+          "required": false,
+          "description": "Apply fixes automatically (default: dry run)"
+        }
+      ],
+      "outputs": ["Fix Report", "Configuration Changes", "Test Results", "Monitoring Setup"],
+      "dependencies": ["Microsoft Graph", "Exchange Online"],
+      "status": "production",
+      "priority": "high",
+      "business_impact": "critical"
+    },
+    {
+      "name": "Automated Reporting System - Complete",
+      "description": "Complete automated reporting system with PAX8 MCP integration and scheduled report generation",
+      "category": "reports",
+      "script_path": "Start-KaviraAutomatedReporting-Complete.ps1",
+      "parameters": [
+        {
+          "name": "ReportType",
+          "type": "string",
+          "required": false,
+          "description": "Executive, Technical, Financial, Complete, PAX8Enhanced"
+        },
+        {
+          "name": "Schedule",
+          "type": "string",
+          "required": false,
+          "description": "Daily, Weekly, Monthly, OnDemand"
+        },
+        {
+          "name": "UsePAX8Data",
+          "type": "switch",
+          "required": false,
+          "description": "Enable PAX8 billing data integration"
+        }
+      ],
+      "outputs": ["Comprehensive Reports", "Executive Summaries", "Automated Scheduling"],
+      "dependencies": ["All Kavira Components", "PAX8 MCP"],
+      "status": "production"
+    },
+    {
+      "name": "Advanced PAX8 Analytics",
+      "description": "Advanced PAX8 analytics with variance reporting, trend analysis, and predictive forecasting",
+      "category": "analytics",
+      "script_path": "Start-KaviraAdvancedPAX8Analytics.ps1",
+      "parameters": [
+        {
+          "name": "AnalysisType",
+          "type": "string",
+          "required": false,
+          "description": "Variance, Trends, Forecasting, Comparative, Complete"
+        },
+        {
+          "name": "ForecastMonths",
+          "type": "number",
+          "required": false,
+          "description": "Number of months to forecast (default: 6)"
+        }
+      ],
+      "outputs": ["Variance Analysis", "Trend Reports", "Predictive Forecasts", "Comparative Intelligence"],
+      "dependencies": ["PAX8 MCP", "Real Billing Data"],
+      "status": "production"
+    },
+      "name": "Executive Dashboard - Professional",
+      "description": "Generate comprehensive executive dashboard with real-time data from Graph API, PAX8, and HaloPSA",
+      "category": "executive",
+      "script_path": "Start-KaviraExecutiveDashboard-Professional.ps1",
+      "parameters": [
+        {
+          "name": "TenantName",
+          "type": "string",
+          "required": false,
+          "description": "Specific tenant to analyze (default: all tenants)"
+        },
+        {
+          "name": "OutputPath",
+          "type": "string",
+          "required": false,
+          "description": "Custom output path for reports"
+        }
+      ],
+      "outputs": ["HTML Dashboard", "Executive Summary", "KPI Metrics"],
+      "dependencies": ["KaviraMSP-Connect", "KaviraMSP-HaloPSA"],
+      "status": "production"
+    },
+    {
+      "name": "License Optimizer - PAX8 Enhanced",
+      "description": "Advanced license optimization with real PAX8 billing data integration and variance analysis",
+      "category": "licensing",
+      "script_path": "Start-KaviraLicenseOptimizer-PAX8-Enhanced.ps1",
+      "parameters": [
+        {
+          "name": "UsePAX8Data",
+          "type": "switch",
+          "required": false,
+          "description": "Use real PAX8 billing data for analysis"
+        },
+        {
+          "name": "GenerateClientReport",
+          "type": "switch",
+          "required": false,
+          "description": "Generate detailed client reports"
+        }
+      ],
+      "outputs": ["Optimization Report", "Savings Analysis", "PAX8 Variance Report"],
+      "dependencies": ["PAX8 MCP", "Microsoft Graph"],
+      "status": "production"
+    },
+    {
+      "name": "License Optimizer - Professional",
+      "description": "Professional license optimization with AUD pricing and detailed recommendations",
+      "category": "licensing", 
+      "script_path": "Start-KaviraLicenseOptimizer-Professional.ps1",
+      "parameters": [
+        {
+          "name": "TenantName",
+          "type": "string",
+          "required": false,
+          "description": "Target tenant for optimization"
+        }
+      ],
+      "outputs": ["HTML Report", "Cost Analysis", "Recommendations"],
+      "dependencies": ["Microsoft Graph"],
+      "status": "production"
+    },
+    {
+      "name": "Intelligent Alerting System",
+      "description": "Smart alerting system with Teams and email notifications for critical events",
+      "category": "alerts",
+      "script_path": "Start-KaviraIntelligentAlerting.ps1",
+      "parameters": [
+        {
+          "name": "AlertLevel",
+          "type": "string",
+          "required": false,
+          "description": "Critical, Warning, Info"
+        }
+      ],
+      "outputs": ["Teams Notifications", "Email Alerts", "Alert Dashboard"],
+      "dependencies": ["Microsoft Graph", "Teams Webhooks"],
+      "status": "production"
+    },
+    {
+      "name": "AI Analytics Engine",
+      "description": "Advanced AI-powered analytics for business insights and predictive analysis",
+      "category": "analytics",
+      "script_path": "Start-KaviraAIEngine.ps1",
+      "parameters": [],
+      "outputs": ["AI Insights", "Predictive Analysis", "Business Intelligence"],
+      "dependencies": ["Microsoft Graph", "Azure AI"],
+      "status": "production"
+    },
+    {
+      "name": "Automated Reporting System",
+      "description": "Automated generation and delivery of comprehensive MSP reports",
+      "category": "reports",
+      "script_path": "Start-KaviraAutomatedReporting.ps1",
+      "parameters": [
+        {
+          "name": "ReportType",
+          "type": "string",
+          "required": false,
+          "description": "Executive, Technical, Financial"
+        },
+        {
+          "name": "Schedule",
+          "type": "string",
+          "required": false,
+          "description": "Daily, Weekly, Monthly"
+        }
+      ],
+      "outputs": ["Scheduled Reports", "Email Delivery", "Report Archive"],
+      "dependencies": ["All Kavira Modules"],
+      "status": "production"
+    },
+    {
+      "name": "Client Success Engine",
+      "description": "Track and optimize client success metrics and satisfaction",
+      "category": "analytics",
+      "script_path": "Start-KaviraClientSuccessEngine.ps1",
+      "parameters": [],
+      "outputs": ["Success Metrics", "Client Health Scores", "Improvement Plans"],
+      "dependencies": ["HaloPSA", "Microsoft Graph"],
+      "status": "production"
+    },
+    {
+      "name": "Security Compliance Scanner",
+      "description": "Comprehensive security compliance scanning across all managed tenants",
+      "category": "security",
+      "script_path": "Start-KaviraSecurityComplianceScanner.ps1",
+      "parameters": [
+        {
+          "name": "ComplianceFramework",
+          "type": "string",
+          "required": false,
+          "description": "ISO27001, SOC2, CIS"
+        }
+      ],
+      "outputs": ["Compliance Report", "Security Score", "Remediation Plan"],
+      "dependencies": ["Microsoft Graph", "Security Center"],
+      "status": "production"
+    },
+    {
+      "name": "Revenue Engine",
+      "description": "Track and optimize MSP revenue across all clients and services",
+      "category": "analytics",
+      "script_path": "Start-KaviraRevenueEngine.ps1",
+      "parameters": [],
+      "outputs": ["Revenue Analytics", "Profitability Analysis", "Growth Opportunities"],
+      "dependencies": ["PAX8 MCP", "HaloPSA"],
+      "status": "production"
+    },
+    {
+      "name": "Health System Monitor",
+      "description": "Comprehensive health monitoring for all MSP systems and clients",
+      "category": "health",
+      "script_path": "Start-KaviraHealthSystem.ps1",
+      "parameters": [],
+      "outputs": ["Health Dashboard", "System Status", "Performance Metrics"],
+      "dependencies": ["KaviraMSP-HealthCheck"],
+      "status": "production"
+    },
+    {
+      "name": "Integration Suite",
+      "description": "Complete integration suite for connecting all MSP tools and platforms",
+      "category": "integration",
+      "script_path": "Start-KaviraIntegrationSuite.ps1",
+      "parameters": [],
+      "outputs": ["Integration Status", "Data Sync Reports", "API Health"],
+      "dependencies": ["All External APIs"],
+      "status": "production"
+    },
+    {
+      "name": "Master Controller",
+      "description": "Central control panel for managing all Kavira MSP automation components",
+      "category": "automation",
+      "script_path": "Start-KaviraMasterController.ps1",
+      "parameters": [],
+      "outputs": ["Control Dashboard", "System Status", "Automation Metrics"],
+      "dependencies": ["All Kavira Components"],
+      "status": "production"
+    },
+    {
+      "name": "Orchestration Engine",
+      "description": "Advanced workflow orchestration for complex MSP automation scenarios",
+      "category": "automation",
+      "script_path": "Start-KaviraOrchestrationEngine.ps1",
+      "parameters": [],
+      "outputs": ["Workflow Status", "Automation Results", "Performance Metrics"],
+      "dependencies": ["All Kavira Modules"],
+      "status": "production"
+    },
+    {
+      "name": "Complete Platform",
+      "description": "Launch the complete Kavira MSP automation platform with all components",
+      "category": "automation",
+      "script_path": "Start-KaviraCompletePlatform.ps1",
+      "parameters": [],
+      "outputs": ["Platform Dashboard", "All System Reports", "Complete Analytics"],
+      "dependencies": ["All Kavira Components"],
+      "status": "production"
+    },
+    {
+      "name": "Complete Suite",
+      "description": "Full Kavira MSP suite with integrated reporting and analytics",
+      "category": "automation",
+      "script_path": "Start-KaviraCompleteSuite.ps1",
+      "parameters": [],
+      "outputs": ["Suite Dashboard", "Integrated Reports", "Cross-Platform Analytics"],
+      "dependencies": ["All Kavira Components"],
+      "status": "production"
+    },
+    {
+      "name": "Executive Dashboard - Enhanced",
+      "description": "Enhanced executive dashboard with advanced visualizations and AI insights",
+      "category": "executive",
+      "script_path": "Start-KaviraExecutiveDashboard-Enhanced.ps1",
+      "parameters": [],
+      "outputs": ["Enhanced Dashboard", "AI Insights", "Executive KPIs"],
+      "dependencies": ["Microsoft Graph", "AI Engine"],
+      "status": "production"
+    },
+    {
+      "name": "Executive Dashboard - HaloPSA",
+      "description": "Executive dashboard with deep HaloPSA integration and ticket analytics",
+      "category": "executive",
+      "script_path": "Start-KaviraExecutiveDashboard-HaloPSA-Working.ps1",
+      "parameters": [],
+      "outputs": ["HaloPSA Dashboard", "Ticket Analytics", "Service Metrics"],
+      "dependencies": ["KaviraMSP-HaloPSA"],
+      "status": "production"
+    },
+    {
+      "name": "Executive Dashboard - Ultimate",
+      "description": "Ultimate executive dashboard combining all data sources and analytics",
+      "category": "executive",
+      "script_path": "Start-KaviraExecutiveDashboard-Ultimate.ps1",
+      "parameters": [],
+      "outputs": ["Ultimate Dashboard", "Complete Analytics", "All KPIs"],
+      "dependencies": ["All Data Sources"],
+      "status": "production"
+    },
+    {
+      "name": "HaloPSA Tickets Report",
+      "description": "Generate comprehensive HTML reports for HaloPSA tickets with analytics",
+      "category": "reports",
+      "script_path": "Start-KaviraHaloTicketsHTMLReport.ps1",
+      "parameters": [
+        {
+          "name": "DateRange",
+          "type": "string",
+          "required": false,
+          "description": "Date range for ticket analysis"
+        }
+      ],
+      "outputs": ["HTML Ticket Report", "Ticket Analytics", "Performance Metrics"],
+      "dependencies": ["KaviraMSP-HaloPSA"],
+      "status": "production"
+    },
+    {
+      "name": "Intune Device Report",
+      "description": "Comprehensive Intune device reporting across all managed tenants",
+      "category": "reports",
+      "script_path": "Start-KaviraIntuneReport.ps1",
+      "parameters": [],
+      "outputs": ["Device Report", "Compliance Status", "Enrollment Analytics"],
+      "dependencies": ["Microsoft Graph"],
+      "status": "production"
+    },
+    {
+      "name": "Security Engine",
+      "description": "Advanced security monitoring and threat detection across all tenants",
+      "category": "security",
+      "script_path": "Start-KaviraSecurityEngine.ps1",
+      "parameters": [],
+      "outputs": ["Security Dashboard", "Threat Analysis", "Security Score"],
+      "dependencies": ["Microsoft Graph", "Security Center"],
+      "status": "production"
+    },
+    {
+      "name": "Workflow Engine",
+      "description": "Intelligent workflow automation for common MSP tasks and processes",
+      "category": "automation",
+      "script_path": "Start-KaviraWorkflowEngine.ps1",
+      "parameters": [],
+      "outputs": ["Workflow Status", "Automation Results", "Process Metrics"],
+      "dependencies": ["All Kavira Modules"],
+      "status": "production"
+    },
+    {
+      "name": "Basic Dashboard",
+      "description": "Simple dashboard for quick overview of key metrics",
+      "category": "executive",
+      "script_path": "Start-KaviraDashboard.ps1",
+      "parameters": [],
+      "outputs": ["Basic Dashboard", "Key Metrics", "Status Overview"],
+      "dependencies": ["Microsoft Graph"],
+      "status": "production"
+    },
+    {
+      "name": "Alert System v1",
+      "description": "First generation alerting system with basic notification capabilities",
+      "category": "alerts",
+      "script_path": "Start-KaviraIntelligentAlerting-v1.ps1",
+      "parameters": [],
+      "outputs": ["Basic Alerts", "Email Notifications"],
+      "dependencies": ["Microsoft Graph"],
+      "status": "legacy"
+    },
+    {
+      "name": "Alert System v2",
+      "description": "Enhanced alerting system with improved logic and notifications",
+      "category": "alerts",
+      "script_path": "Start-KaviraIntelligentAlerting-v2.ps1",
+      "parameters": [],
+      "outputs": ["Enhanced Alerts", "Smart Notifications"],
+      "dependencies": ["Microsoft Graph", "Teams"],
+      "status": "production"
+    },
+    {
+      "name": "License Optimizer v3",
+      "description": "Third generation license optimizer with enhanced algorithms",
+      "category": "licensing",
+      "script_path": "Start-KaviraLicenseOptimizer-v3.ps1",
+      "parameters": [],
+      "outputs": ["License Analysis", "Cost Optimization"],
+      "dependencies": ["Microsoft Graph"],
+      "status": "production"
+    },
+    {
+      "name": "License Optimizer v3.1",
+      "description": "Fixed version of license optimizer with improved accuracy",
+      "category": "licensing",
+      "script_path": "Start-KaviraLicenseOptimizer-v3.1-Fixed.ps1",
+      "parameters": [],
+      "outputs": ["Fixed License Analysis", "Accurate Recommendations"],
+      "dependencies": ["Microsoft Graph"],
+      "status": "production"
+    },
+    {
+      "name": "License Optimizer - GPT",
+      "description": "AI-powered license optimization with GPT integration",
+      "category": "licensing",
+      "script_path": "Start-KaviraLicenseOptimizer-gpt.ps1",
+      "parameters": [],
+      "outputs": ["AI License Analysis", "Smart Recommendations"],
+      "dependencies": ["Microsoft Graph", "OpenAI API"],
+      "status": "experimental"
+    },
+    {
+      "name": "License Optimizer - PAX8 v3",
+      "description": "PAX8 integrated license optimizer with real billing data",
+      "category": "licensing",
+      "script_path": "Start-KaviraLicenseOptimizer-pax8-v3.ps1",
+      "parameters": [],
+      "outputs": ["PAX8 Analysis", "Billing Optimization"],
+      "dependencies": ["PAX8 API", "Microsoft Graph"],
+      "status": "production"
+    },
+    {
+      "name": "Basic License Optimizer",
+      "description": "Basic license optimization for simple scenarios",
+      "category": "licensing",
+      "script_path": "Start-KaviraLicenseOptimizer.ps1",
+      "parameters": [],
+      "outputs": ["Basic License Report"],
+      "dependencies": ["Microsoft Graph"],
+      "status": "production"
+    },
+    {
+      "name": "Reporting Engine",
+      "description": "Core reporting engine for generating various MSP reports",
+      "category": "reports",
+      "script_path": "Start-KaviraReportingEngine.ps1",
+      "parameters": [
+        {
+          "name": "ReportType",
+          "type": "string",
+          "required": true,
+          "description": "Type of report to generate"
+        }
+      ],
+      "outputs": ["Custom Reports", "Data Analytics"],
+      "dependencies": ["All Data Sources"],
+      "status": "production"
+    }
+  ],
+  "modules": [
+    {
+      "name": "KaviraMSP-Connect",
+      "path": "KaviraMSP-Connect.psm1",
+      "description": "Core connection module for Microsoft Graph and tenant management",
+      "functions": ["Connect-KaviraGraph", "Select-KaviraTenant", "Test-KaviraConnection"],
+      "status": "production"
+    },
+    {
+      "name": "KaviraMSP-HealthCheck", 
+      "path": "KaviraMSP-HealthCheck.psm1",
+      "description": "Health monitoring and diagnostic functions",
+      "functions": ["Start-KaviraHealthCheck", "Test-TenantHealth", "Get-SystemStatus"],
+      "status": "production"
+    },
+    {
+      "name": "KaviraMSP-Users",
+      "path": "KaviraMSP-Users.psm1", 
+      "description": "User management and analytics functions",
+      "functions": ["Get-KaviraUsers", "Analyze-UserActivity", "Report-UserMetrics"],
+      "status": "production"
+    },
+    {
+      "name": "KaviraMSP-Devices",
+      "path": "KaviraMSP-Devices.psm1",
+      "description": "Device management and monitoring functions", 
+      "functions": ["Get-KaviraDevices", "Monitor-DeviceHealth", "Report-DeviceStatus"],
+      "status": "production"
+    },
+    {
+      "name": "KaviraMSP-HaloPSA",
+      "path": "KaviraMSP-HaloPSA.psm1",
+      "description": "HaloPSA integration and ticket management",
+      "functions": ["Connect-HaloPSA", "Get-HaloTickets", "Analyze-TicketMetrics"],
+      "status": "production"
+    },
+    {
+      "name": "KaviraMSP-Utils",
+      "path": "KaviraMSP-Utils.psm1",
+      "description": "Utility functions and common operations",
+      "functions": ["Format-KaviraReport", "Export-KaviraData", "Send-KaviraAlert"],
+      "status": "production"
+    },
+    {
+      "name": "KaviraMSP-Backup",
+      "path": "KaviraMSP-Backup.psm1", 
+      "description": "Backup and recovery functions",
+      "functions": ["Backup-KaviraConfig", "Restore-KaviraData", "Test-BackupIntegrity"],
+      "status": "production"
+    }
+  ],
+  "requirements": {
+    "powershell_version": "7.5.1",
+    "modules": [
+      "Microsoft.Graph",
+      "ExchangeOnlineManagement", 
+      "Az.Accounts",
+      "ImportExcel"
+    ],
+    "certificates": [
+      "3EEA5A17B121CC09677F6E9DE8F08717AF5280C7"
+    ]
+  },
+  "configuration": {
+    "tenant_config_path": "C:\\MSP\\Config\\tenants.json",
+    "output_path": "C:\\MSP\\Reports\\",
+    "log_path": "C:\\MSP\\Logs\\",
+    "backup_path": "C:\\MSP\\Backups\\"
+  },
+  "integration": {
+    "pax8": {
+      "enabled": true,
+      "cache_path": "C:\\MSP\\Config\\pax8_export_cache_complete.json",
+      "api_endpoint": "supergateway-pax8"
+    },
+    "halopsa": {
+      "enabled": true,
+      "base_url": "https://kavira.halopsa.com",
+      "api_version": "v1"
+    },
+    "microsoft_graph": {
+      "enabled": true,
+      "scopes": ["https://graph.microsoft.com/.default"]
+    }
+  },
+  "stats": {
+    "total_tools": 33,
+    "total_modules": 7,
+    "total_tenants": 11,
+    "last_health_check": "2025-07-18T15:30:00Z"
+  }
+}
